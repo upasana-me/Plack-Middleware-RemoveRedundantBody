@@ -18,8 +18,8 @@ sub call {
         if( Plack::Util::status_with_no_entity_body($response->[0]) ) {
             $response->[2] = [];
             $headers->remove("Content-Length");
-            return $response;
 	}
+	return;
     });
 }
 
