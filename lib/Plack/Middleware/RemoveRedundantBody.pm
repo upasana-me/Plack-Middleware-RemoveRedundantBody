@@ -2,8 +2,8 @@ package Plack::Middleware::RemoveRedundantBody;
 use strict;
 use warnings;
 use parent qw( Plack::Middleware );
-
 use Plack::Util;
+
 # ABSTRACT: Plack::Middleware which sets removes body for HTTP response if it's not required
 
 sub call {
@@ -15,7 +15,7 @@ sub call {
         my $response = shift;
         my $status = $response->[0];
         my $headers = Plack::Util::headers($response->[1]); # first index contains HTTP header
-        if( $status =~ /^(1\d\d|[23]04)$/ ) {
+        if( Plack::Util::status_with_no_entity_body($response->[0]) ) {
             $response->[2] = [];
             $headers->remove("Content-Length");
             return $response;
