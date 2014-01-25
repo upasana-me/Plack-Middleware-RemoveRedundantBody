@@ -48,4 +48,8 @@ Plack::Middleware::RemoveRedundantBody - removes body for HTTP response if it's 
 
 This module removes body in HTTP response, if it's not required.
 
+=head1 CONTRIBUTORS
+
+John Napiorkowski <jjn1056@yahoo.com>
+
 =cut
