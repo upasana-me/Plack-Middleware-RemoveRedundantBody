@@ -4,6 +4,8 @@ use warnings;
 use parent qw( Plack::Middleware );
 use Plack::Util;
 
+our $VERSION = "0.03";
+
 # ABSTRACT: Plack::Middleware which sets removes body for HTTP response if it's not required
 
 sub call {
