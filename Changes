@@ -1,0 +1,15 @@
+0.04
+
+    * Added this Changes file & fixed POD (RT 94942, reported by Florian)
+
+0.03
+
+    * Added John Napiorkowski to the contributors
+
+0.02
+
+    * Remove pointless return of $response (John Napiorkowski)
+
+0.01
+
+    * First release

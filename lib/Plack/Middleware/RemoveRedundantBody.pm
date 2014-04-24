@@ -28,10 +28,6 @@ sub call {
 1;
 __END__
 
-=head1 NAME
-
-Plack::Middleware::RemoveRedundantBody - removes body for HTTP response if it's not required
-
 =head1 SYNOPSIS
 
    use strict;
