@@ -4,7 +4,6 @@ use Test::More;
 use Plack::Test;
 use Plack::Builder;
 use HTTP::Request::Common;
-use Carp::Always;
 
 test_psgi app => builder {
     enable 'RemoveRedundantBody';
