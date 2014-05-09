@@ -50,4 +50,6 @@ This module removes body in HTTP response, if it's not required.
 
 John Napiorkowski <jjn1056@yahoo.com>
 
+Karen Etheridge <ether@cpan.org>
+
 =cut
