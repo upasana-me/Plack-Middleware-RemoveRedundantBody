@@ -6,7 +6,7 @@ use Plack::Util;
 
 our $VERSION = "0.06";
 
-# ABSTRACT: Plack::Middleware which sets removes body for HTTP response if it's not required
+# ABSTRACT: Plack::Middleware which removes body for HTTP response if it's not required
 
 sub call {
     my ($self, $env) = @_;
