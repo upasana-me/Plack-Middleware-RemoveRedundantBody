@@ -15,7 +15,6 @@ sub call {
 
     return $self->response_cb($res, sub {
         my $response = shift;
-        my $status = $response->[0];
         my $headers = Plack::Util::headers($response->[1]); # first index contains HTTP header
         if( Plack::Util::status_with_no_entity_body($response->[0]) ) {
             $response->[2] = [];
