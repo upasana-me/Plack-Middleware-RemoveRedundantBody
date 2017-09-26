@@ -15,10 +15,9 @@ sub call {
 
     return $self->response_cb($res, sub {
         my $response = shift;
-        if( Plack::Util::status_with_no_entity_body($response->[0]) ) {
-            $response->[2] = [];
-            Plack::Util::header_remove($response->[1], "Content-Length");
-	}
+        return unless Plack::Util::status_with_no_entity_body($response->[0]);
+        $response->[2] = [];
+        Plack::Util::header_remove($response->[1], "Content-Length");
         return;
     });
 }
