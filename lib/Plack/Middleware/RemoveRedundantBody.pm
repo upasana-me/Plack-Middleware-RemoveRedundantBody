@@ -6,7 +6,7 @@ use Plack::Util;
 
 our $VERSION = "0.06";
 
-# ABSTRACT: Plack::Middleware which sets removes body for HTTP response if it's not required
+# ABSTRACT: Plack::Middleware which removes body for HTTP response if it's not required
 
 sub call {
     my ($self, $env) = @_;
@@ -15,12 +15,9 @@ sub call {
 
     return $self->response_cb($res, sub {
         my $response = shift;
-        my $status = $response->[0];
-        my $headers = Plack::Util::headers($response->[1]); # first index contains HTTP header
-        if( Plack::Util::status_with_no_entity_body($response->[0]) ) {
-            $response->[2] = [];
-            $headers->remove("Content-Length");
-	}
+        return unless Plack::Util::status_with_no_entity_body($response->[0]);
+        $response->[2] = [];
+        Plack::Util::header_remove($response->[1], "Content-Length");
         return;
     });
 }
