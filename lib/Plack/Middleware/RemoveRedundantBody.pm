@@ -49,4 +49,6 @@ John Napiorkowski <jjn1056@yahoo.com>
 
 Karen Etheridge <ether@cpan.org>
 
+Aristotle Pagaltzis <pagaltzis@gmx.de>
+
 =cut
