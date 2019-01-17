@@ -144,6 +144,20 @@ test_psgi app => builder {
          $fh];
     };
 
+    # delayed response
+    mount '/code_200_delayed' => sub {
+        sub {
+            my $respond = shift;
+            $respond->( [200, [ "Content-Type" => 'text/plain' ], ['OK']] );
+        };
+    };
+    mount '/code_304_delayed' => sub {
+        sub {
+            my $respond = shift;
+            $respond->( [304, [ "Content-Type" => 'text/plain' ], ['OK']] );
+        };
+    };
+
     # streaming response
     mount '/code_200_writer' => sub {
         sub {
@@ -226,6 +240,16 @@ client => sub {
           '',
           304,
           'text/html; charset=utf-8' ],
+
+        # delayed response
+        [ '/code_200_delayed',
+          'OK',
+          200,
+          'text/plain' ],
+        [ '/code_304_delayed',
+          '',
+          304,
+          'text/plain' ],
 
         # streaming response
         [ '/code_200_writer',
