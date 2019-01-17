@@ -143,6 +143,24 @@ test_psgi app => builder {
          [ "Content-Type" => 'text/html; charset=utf-8'],
          $fh];
     };
+
+    # streaming response
+    mount '/code_200_writer' => sub {
+        sub {
+            my $respond = shift;
+            my $writer = $respond->( [200, [ "Content-Type" => 'text/plain' ]] );
+            $writer->write( ref($writer) );
+            $writer->close;
+        };
+    };
+    mount '/code_304_writer' => sub {
+        sub {
+            my $respond = shift;
+            my $writer = $respond->( [304, [ "Content-Type" => 'text/plain' ]] );
+            $writer->write( ref($writer) );
+            $writer->close;
+        };
+    };
 },
 client => sub {
     my $cb = shift;
@@ -208,6 +226,16 @@ client => sub {
           '',
           304,
           'text/html; charset=utf-8' ],
+
+        # streaming response
+        [ '/code_200_writer',
+          'Plack::Util::Prototype',
+          200,
+          'text/plain' ],
+        [ '/code_304_writer',
+          'Plack::Util::Prototype',
+          304,
+          'text/plain' ],
     );
 
     foreach my $response ( @responses ) {
