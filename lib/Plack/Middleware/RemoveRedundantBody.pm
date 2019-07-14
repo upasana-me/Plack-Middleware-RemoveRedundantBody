@@ -52,4 +52,6 @@ Karen Etheridge <ether@cpan.org>
 
 Aristotle Pagaltzis <pagaltzis@gmx.de>
 
+Tomohiro Hosaka <hello@bokut.in>
+
 =cut
