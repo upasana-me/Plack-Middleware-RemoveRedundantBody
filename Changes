@@ -8,7 +8,12 @@ Change history for {{ $dist->name }}:
     [Toolchain]
     - Update Changes through Dist::Zilla.
 
-0.07      2019-07-14
+0.08      2019-07-14
+    - Fixed response for 304 HTTP status code
+    - Some tests for the 304 HTTP status code
+    - Fixed versions
+
+0.07      2018-02-26
     - Removed redundant object allocations & some minor fixes
 
 0.06      2018-02-26
