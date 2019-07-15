@@ -1,8 +1,12 @@
-Change history for Plack-Middleware-RemoveRedundantBody:
+Change history for {{ $dist->name }}:
 
+{{$NEXT}}
     [Documentation]
     - Added dates to Changes (Robert Rothenberg)
     - Reformatted Changes to conform to contemporary specs.
+
+    [Toolchain]
+    - Update Changes through Dist::Zilla.
 
 0.07      2019-07-14
     - Removed redundant object allocations & some minor fixes
