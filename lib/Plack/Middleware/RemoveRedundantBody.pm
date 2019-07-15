@@ -54,4 +54,6 @@ Aristotle Pagaltzis <pagaltzis@gmx.de>
 
 Tomohiro Hosaka <hello@bokut.in>
 
+Robert Rothenberg <rrwo@cpan.org>
+
 =cut
